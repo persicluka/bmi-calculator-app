@@ -32,10 +32,10 @@ class MainActivity : AppCompatActivity() {
         btnCalculate = findViewById(R.id.btnCalculate)
 
         btnCalculate.setOnClickListener() {
-            closeKeyboard()
             if (heightText.text.isNotEmpty() && weightText.text.isNotEmpty()) {
                 getBMI()
                 displayResult()
+                closeKeyboard()
             } else {
                 Toast.makeText(this, "Fields cannot be empty!", Toast.LENGTH_SHORT).show()
             }
@@ -81,5 +81,6 @@ class MainActivity : AppCompatActivity() {
         val view = this.currentFocus as View
         val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(view.windowToken, 0)
+
     }
 }
